@@ -8,6 +8,7 @@ private: // реализация объекта
     int y; // поле объекта
     char symbol; // поле объекта
 public:   // интерфейс объекта
+
     void Print() // метод класса 
     {
         cout << symbol << "-> X: " << x << "\tY: " << y << endl;
@@ -18,16 +19,39 @@ public:   // интерфейс объекта
         x = _x;
         y = _y;
     }
+    // -------------- методы аксессоры 
+    void SetSymbol(char sym)// setter
+    {
+        symbol = sym;
+    }
+    char GetSymbol()  // getter
+    {
+        return symbol;
+    }   
+
+    void SetX(int a)
+    {
+        if (a >= 0)
+        {
+            x = a;
+        }
+    }
+    int GetX()
+    {
+        return x;
+    }
+
 };
 int main() // клент
 {
-    Point a, b;
-    //cout << sizeof(a) << endl; // 12
-
+    Point a;
+   
     a.Init('A', 10, -20);
     a.Print();
+    a.SetSymbol('T');
+    a.Print();
 
-    b.Init('B', 5, 16);
-    b.Print();
-
+    char c = a.GetSymbol();
+    cout << c << endl;
+   
 }
